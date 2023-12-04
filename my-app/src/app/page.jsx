@@ -88,7 +88,7 @@ const LoginSection = () => {
 
                 <div>
                   <p className="mb-0">
-                    Don't have an account? <span></span>
+                    Don&apos;re t have an account? <span></span>
                     <a href="/register" className="text-white-50 fw-bold">
                       Sign Up
                     </a>
