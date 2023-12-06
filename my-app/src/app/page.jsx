@@ -4,8 +4,10 @@ import { useState } from "react";
 import React from "react";
 import styles from "../app/page.module.css";
 import { Container, Form, Button } from "react-bootstrap";
+import { useRouter } from "next/navigation";
 
 const LoginSection = () => {
+  const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const tokenEndpoint = 'http://sneakersbandung.hzgecqhehxbtanhv.southeastasia.azurecontainer.io/token';
@@ -30,7 +32,7 @@ const LoginSection = () => {
     })
       .then(response => {
         if (response.ok) {
-          window.location.href = 'http://sneakersbandung.hzgecqhehxbtanhv.southeastasia.azurecontainer.io/docs';
+          router.push('http://sneakersbandung.hzgecqhehxbtanhv.southeastasia.azurecontainer.io/docs');
         } else {
           // Handle other response codes here
           window.alert("Invalid Credentials!")

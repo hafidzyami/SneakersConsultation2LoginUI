@@ -28,15 +28,15 @@ const LoginSection = () => {
 
       if (response.ok) {
         const data = await response.json();
-        window.alert('Registration successful:', data);
+        window.alert('Registration successful:');
         router.push("/")
       } else {
         const errorData = await response.json();
-        window.alert('Registration failed:', errorData);
+        console.log(errorData)
+        window.alert(`Registration failed: ${errorData.detail}`);
       }
     } catch (error) {
-        window.alert('Error:', error)
-      console.error('Error:', error);
+        window.alert(`Error : ${error}`)
     }
 
     setPassword("")
