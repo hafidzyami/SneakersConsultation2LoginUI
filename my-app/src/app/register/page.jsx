@@ -14,7 +14,7 @@ const LoginSection = () => {
   const handleRegister = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch('http://127.0.0.1:8000/register', {
+      const response = await fetch('http://sneakersbandung.hzgecqhehxbtanhv.southeastasia.azurecontainer.io/register', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

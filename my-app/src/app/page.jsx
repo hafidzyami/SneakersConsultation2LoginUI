@@ -8,7 +8,7 @@ import { Container, Form, Button } from "react-bootstrap";
 const LoginSection = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const tokenEndpoint = 'http://127.0.0.1:8000/token';
+  const tokenEndpoint = 'http://sneakersbandung.hzgecqhehxbtanhv.southeastasia.azurecontainer.io/token';
   const tokenData = new URLSearchParams({
     grant_type: '',
     username: username,
@@ -30,7 +30,7 @@ const LoginSection = () => {
     })
       .then(response => {
         if (response.ok) {
-          window.location.href = 'http://127.0.0.1:8000/docs';
+          window.location.href = 'http://sneakersbandung.hzgecqhehxbtanhv.southeastasia.azurecontainer.io/docs';
         } else {
           // Handle other response codes here
           window.alert("Invalid Credentials!")
