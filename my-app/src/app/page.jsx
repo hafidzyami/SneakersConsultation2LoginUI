@@ -36,7 +36,7 @@ const LoginSection = () => {
       });
 
       if (!response.ok) {
-        window.alert(`HTTP error! Status: ${response.status}`);
+        window.alert(`Invalid Credentials! Status: ${response.status}`);
       }
       else{
         router.push("http://sneakersbandung.hzgecqhehxbtanhv.southeastasia.azurecontainer.io/docs")
