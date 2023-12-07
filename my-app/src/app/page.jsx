@@ -10,36 +10,40 @@ const LoginSection = () => {
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const tokenEndpoint = 'http://sneakersbandung.hzgecqhehxbtanhv.southeastasia.azurecontainer.io/token';
-  const tokenData = new URLSearchParams({
-    grant_type: '',
-    username: username,
-    password: password,
-    scope: '',
-    client_id: '',
-    client_secret: '',
-  });
 
-  const handleLogin = (e) => {
+  const handleLogin = async(e) => {
     e.preventDefault();
-    fetch(tokenEndpoint, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: tokenData,
-    })
-      .then(response => {
-        if (response.ok) {
-          router.push('http://sneakersbandung.hzgecqhehxbtanhv.southeastasia.azurecontainer.io/docs');
-        } else {
-          // Handle other response codes here
-          window.alert("Invalid Credentials!")
-        }
-      })
-      .then(data => console.log(data))
-      .catch(error => console.error('Error:', error));
+    const url = 'http://sneakersbandung.hzgecqhehxbtanhv.southeastasia.azurecontainer.io/token';
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
+    };
+
+    const body = new URLSearchParams({
+      'grant_type': '',
+      'username': username,
+      'password': password,
+      'scope': '',
+      'client_id': '',
+      'client_secret': '',
+    });
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: headers,
+        body: body,
+      });
+
+      if (!response.ok) {
+        window.alert(`HTTP error! Status: ${response.status}`);
+      }
+      else{
+        router.push("http://sneakersbandung.hzgecqhehxbtanhv.southeastasia.azurecontainer.io/docs")
+      }
+    } catch (error) {
+      window.alert(`Failed to login : ${error}`)
+    }
   };
 
   return (
